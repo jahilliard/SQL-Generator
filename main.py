@@ -5,11 +5,6 @@ def main():
 	csv_docs = []
 	data = Db_data()
 	data.data_extractor('scndcmpl.csv')
-	print data.colnameid
-	print data.colnamedesc
-	print len(data.ids)
-	print len(data.descs) 
-	print len(data.counts)
 	print "case"
 	D = defaultdict(list)
 	for i,item in enumerate(data.ids):
@@ -22,15 +17,11 @@ def main():
 			compare = []
 			names = []
 			for x in val:
-				compare.append(data.counts[x])
+				compare.append(data.count[x])
 				names.append(data.descs[x])
 			idx = compare.index(max(compare))
 			print "\twhen " + data.colnameid + " = " + str(key) + " then '" + names[idx] + "'"
 	print "end"
-	print D
-	print data.ids
-	print data.descs 
-	print data.counts
 				
 
 					
