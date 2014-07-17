@@ -1,16 +1,32 @@
-import re
+import re 
+import xlrd
+import csv
 
 class Db_data:
 	#initialize method for the Graph method
 	def __init__(self):
 		self.colnameid = "wc"
 		self.colnamedesc = "wc"
+		# self.csvdata = []
+		# self.xsldata = []
 		self.ids = []
 		self.descs = []
 		self.count = []
 		self.ididx = "not correct"
 		self.descidx = "not correct"
 		self.countidx = "not correct"
+
+	# def csv_from_excel():
+
+	# 	wb = xlrd.open_workbook('your_workbook.xls')
+	# 	sh = wb.sheet_by_name('Sheet1')
+	# 	your_csv_file = open('your_csv_file.csv', 'wb')
+	# 	wr = csv.writer(your_csv_file, quoting=csv.QUOTE_ALL)
+
+	# 	for rownum in xrange(sh.nrows):
+	# 		wr.writerow(sh.row_values(rownum))
+
+	# 	your_csv_file.close()
 	
 	#reads and parses the csv document
 	def data_extractor(self, cvs_file):
