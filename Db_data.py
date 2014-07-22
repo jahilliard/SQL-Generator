@@ -12,9 +12,11 @@ class Db_data:
 		self.ids = []
 		self.descs = []
 		self.count = []
+		self.map = []
 		self.ididx = "not correct"
 		self.descidx = "not correct"
 		self.countidx = "not correct"
+		self.mapidx = "not correct"
 
 	# def csv_from_excel():
 
@@ -53,10 +55,12 @@ class Db_data:
 					if self.countidx != 'not correct':
 						min_data[self.countidx] = int(min_data[self.countidx])
 						self.count.append(min_data[self.countidx])
+					if self.mapidx != 'not correct':
+						min_data[self.mapidx] = min_data[self.mapidx]
+						self.map.append(min_data[self.mapidx])
 				else:
 					min_data = x.split(',')
 					for idx,val in enumerate(min_data):
-						print val
 						val = val.upper()
 						if val.find('COUNT') != -1:
 							self.countidx = idx
@@ -64,6 +68,8 @@ class Db_data:
 							self.descidx = idx
 						if val.find('ID') != -1:
 							self.ididx = idx
+						if val.find('MAP') != -1:
+							self.mapidx = idx
 					if self.ididx != 'not correct':
 						self.colnameid = min_data[self.ididx]
 					if self.descidx != 'not correct':

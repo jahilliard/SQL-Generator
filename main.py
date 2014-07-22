@@ -22,9 +22,18 @@ def main():
 			idx = compare.index(max(compare))
 			print "\twhen " + data.colnameid + " = " + str(key) + " then '" + names[idx] + "'"
 	print "end"
+
+def repeat_map():
+	csv_docs = []
+	data = Db_data()
+	data.data_extractor('resmap.csv')
+	print data.ids
+	print data.descs 
+	print data.count
+	print data.map
 				
 
 					
 
 
-main()
+repeat_map()
